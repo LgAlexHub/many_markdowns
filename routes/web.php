@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->name('notes')->group(function () {
     Route::get('notes', fn() => Inertia::render('Notes', [
         'notes' => Note::all()
-    ]));
+    ]))->name('app');
 
     Route::get('app/{note?}', function (Note $note) {
         return Inertia::render('AppEditor', [
